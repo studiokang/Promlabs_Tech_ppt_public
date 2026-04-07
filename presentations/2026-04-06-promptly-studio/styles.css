@@ -1,0 +1,330 @@
+/* Promptly Studio 사용 가이드
+ * AI 크리에이티브 도구 — 보라 + 시안 + 다크
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background-color: #0b0b12;
+  --section-divider-bg: #0f0f1a;
+
+  --heading-font: "Inter", "Noto Sans KR", sans-serif;
+  --body-font: "Noto Sans KR", "Inter", sans-serif;
+  --base-font-size: 32px;
+  --text-size: 16pt;
+  --h1-size: 46pt;
+  --h2-size: 32pt;
+  --h3-size: 20pt;
+  --footnote-size: 11pt;
+
+  --primary-color: #A78BFA;
+  --secondary-color: #22D3EE;
+  --text-color: #e4e4e8;
+  --muted-color: #8888a0;
+  --line-color: #2a2a3e;
+
+  --slide-padding: 60px;
+  --slide-padding-top: 40px;
+  --content-gap: 22px;
+
+  --box-radius: 10px;
+  --box-bg: rgba(255, 255, 255, 0.04);
+  --box-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+
+/* 1. 상단 라인 흐름 */
+@keyframes line-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 2. 섹션 디바이더 제목 glow — 보라+시안 이중 레이어, 느린 호흡 */
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 15px rgba(167, 139, 250, 0.15),
+      0 0 40px rgba(167, 139, 250, 0.05);
+  }
+  50% {
+    text-shadow:
+      0 0 25px rgba(167, 139, 250, 0.35),
+      0 0 60px rgba(167, 139, 250, 0.1),
+      0 0 100px rgba(34, 211, 238, 0.06);
+  }
+}
+
+/* 4. 배경 그리드 이동 */
+@keyframes bg-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* 5. 카드 등장 시 1회 빛남 — box-shadow만 사용, border 건드리지 않음 */
+@keyframes card-appear {
+  0%, 100% { box-shadow: none; }
+  30% { box-shadow: 0 0 25px rgba(167, 139, 250, 0.25), inset 0 0 8px rgba(167, 139, 250, 0.08); }
+}
+
+/* fragment가 visible 되면 1회 재생 */
+.card.fragment.visible,
+.pain-box.fragment.visible {
+  animation: card-appear 1.6s ease-out;
+}
+
+/* 6. 상태 아이콘 애니메이션 */
+
+/* 진행중: 느린 회전 */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.icon-spin {
+  display: inline-block;
+  animation: spin-slow 3s linear infinite;
+}
+
+/* 리뷰 요청: 눈 깜빡임 — 3초 주기, 감았다 뜨는 속도 느리게 */
+@keyframes eye-blink {
+  0%, 30%, 46%, 100% { transform: scaleY(1); }
+  36%, 40% { transform: scaleY(0.08); }
+}
+.icon-blink {
+  display: inline-block;
+  animation: eye-blink 3s ease-in-out infinite;
+  transform-origin: center 60%;
+}
+
+/* 수정 필요: 필기 모션 */
+@keyframes pen-write {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  20% { transform: rotate(-8deg) translateY(-1px); }
+  40% { transform: rotate(4deg) translateY(1px); }
+  60% { transform: rotate(-4deg) translateY(-1px); }
+  80% { transform: rotate(2deg) translateY(0); }
+}
+.icon-write {
+  display: inline-block;
+  animation: pen-write 2.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* 승인: 체크 처음 안 보이다 그려짐 → 유지 → 사라짐 → 반복 */
+@keyframes check-draw {
+  0%, 15% { stroke-dashoffset: 36; opacity: 0; }
+  20% { opacity: 1; }
+  45% { stroke-dashoffset: 0; opacity: 1; }
+  75% { stroke-dashoffset: 0; opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.icon-check-svg {
+  width: 36pt;
+  height: 36pt;
+}
+.icon-check-svg path {
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  opacity: 0;
+  animation: check-draw 4s ease-in-out infinite;
+}
+
+/* CUSTOM CURSOR — 보라 반투명 원 (14x14, 기본 커서보다 약간 작음) */
+.reveal, .reveal * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='7' cy='7' r='5' fill='%23A78BFA' opacity='0.8'/%3E%3Ccircle cx='7' cy='7' r='6.5' stroke='%23A78BFA' stroke-width='1' fill='none' opacity='0.3'/%3E%3C/svg%3E") 7 7, auto;
+}
+
+/* BASE */
+.reveal-viewport {
+  background-color: var(--background-color);
+  /* 효과 4: 미세 도트 그리드 */
+  background-image: radial-gradient(rgba(167, 139, 250, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: bg-drift 6s linear infinite;
+}
+.reveal { font-family: var(--body-font); font-size: var(--base-font-size); }
+.reveal strong, .reveal b { font-weight: bold; }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: var(--heading-font);
+  text-transform: none;
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.reveal h1 { font-size: var(--h1-size); }
+.reveal h2 { font-size: var(--h2-size); margin-bottom: 0; }
+.reveal h3 { font-size: var(--h3-size); }
+
+.reveal p, .reveal li, .reveal td, .reveal th, .reveal blockquote {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* LISTS */
+.reveal ul { list-style: none; padding-left: 0; margin: 12px 0; }
+.reveal ul li { position: relative; padding-left: 25px; margin-bottom: 8px; }
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.6em;
+  width: 7px; height: 7px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+.reveal ul ul li::before { background: var(--muted-color); width: 5px; height: 5px; }
+.reveal blockquote p { font-size: inherit; }
+
+/* TABLES */
+.reveal table { width: 100%; border-collapse: collapse; }
+.reveal table th {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--primary-color);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 15px;
+  border-bottom: 2px solid var(--primary-color);
+}
+.reveal table td { padding: 10px 15px; border-bottom: 1px solid var(--box-border); }
+
+/* SLIDE LAYOUT */
+.reveal .slides section {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: var(--slide-padding-top) var(--slide-padding) var(--slide-padding) var(--slide-padding) !important;
+  box-sizing: border-box;
+  text-align: left;
+}
+.reveal .slides section.stack { padding: 0 !important; }
+.reveal .slides section > .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
+  text-align: left;
+}
+.reveal .slides section > .footnote {
+  position: absolute;
+  bottom: 15px;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  font-size: var(--footnote-size);
+  color: var(--muted-color);
+}
+
+/* SECTION DIVIDERS */
+.reveal .slides section.section-divider {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal-viewport.is-section-divider .slide-background.present {
+  background-color: var(--section-divider-bg) !important;
+}
+.reveal .slides section.section-divider h1 {
+  font-size: 48pt;
+  text-align: center;
+  color: var(--primary-color);
+  animation: title-glow 5s ease-in-out infinite;
+}
+.reveal .slides section.section-divider p {
+  font-size: 20pt;
+  color: var(--muted-color);
+}
+
+/* TEXT UTILITIES */
+.text-lg { font-size: 18pt !important; }
+.text-xl { font-size: 20pt !important; }
+.text-2xl { font-size: 24pt !important; }
+.text-3xl { font-size: 28pt !important; }
+.text-4xl { font-size: 32pt !important; }
+.text-muted { color: var(--muted-color) !important; }
+.text-center { text-align: center !important; }
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+.font-light { font-weight: 300; }
+.font-bold { font-weight: 600; }
+
+/* BLOCKQUOTES */
+.reveal blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+}
+.reveal blockquote cite {
+  display: block; margin-top: 10px;
+  font-style: normal; color: var(--muted-color);
+}
+
+/* CARD */
+.card {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  padding: 22px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.12), 0 0 4px rgba(34, 211, 238, 0.08);
+}
+.card p { margin: 0; }
+
+/* PAIN POINT BOX */
+.pain-box {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  padding: 15px 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.pain-box:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.12);
+}
+
+/* STEP NUMBER */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #0b0b12;
+  font-weight: 700;
+  font-size: 15pt;
+  flex-shrink: 0;
+}
+
+/* PROGRESS BAR — 하단 진행 바 테마 연동 */
+.reveal .progress {
+  height: 3px;
+  color: var(--primary-color);
+}
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* DECORATIVE LINE — 흐르는 그라데이션 */
+.reveal .slides section:not(.section-divider)::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  background-size: 200% 100%;
+  animation: line-flow 4s linear infinite;
+  opacity: 0.7;
+}

@@ -1,0 +1,277 @@
+/* 제본스의 역설 — Jevons' Paradox
+ *
+ * 다크 배경 + teal(효율) vs amber(소비) 대비
+ * 역설의 충돌을 색상으로 표현
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Background */
+  --background-color: #0a0a0f;
+  --section-divider-bg: #0f1218;
+
+  /* Typography */
+  --heading-font: "Space Grotesk", "Noto Sans KR", sans-serif;
+  --body-font: "Noto Sans KR", "Space Grotesk", sans-serif;
+  --base-font-size: 32px;
+  --text-size: 16pt;
+  --h1-size: 48pt;
+  --h2-size: 34pt;
+  --h3-size: 22pt;
+  --footnote-size: 11pt;
+
+  /* Colors */
+  --primary-color: #4ECDC4;     /* teal — 효율 */
+  --secondary-color: #F7A940;   /* amber — 소비/증가 */
+  --text-color: #e8e8e8;
+  --muted-color: #8a8a9a;
+  --line-color: #2a2a3a;
+
+  /* Layout */
+  --slide-padding: 60px;
+  --slide-padding-top: 40px;
+  --content-gap: 25px;
+
+  /* Components */
+  --box-radius: 8px;
+  --box-bg: rgba(255, 255, 255, 0.05);
+  --box-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+
+.reveal-viewport {
+  background-color: var(--background-color);
+}
+
+.reveal {
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: var(--heading-font);
+  text-transform: none;
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.reveal h1 { font-size: var(--h1-size); }
+.reveal h2 { font-size: var(--h2-size); margin-bottom: 0; }
+.reveal h3 { font-size: var(--h3-size); }
+
+.reveal p,
+.reveal li,
+.reveal td,
+.reveal th,
+.reveal blockquote {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ===========================================
+   LISTS
+   =========================================== */
+
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.reveal ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
+.reveal ul ul li::before {
+  background: var(--muted-color);
+  width: 6px;
+  height: 6px;
+}
+
+.reveal blockquote p {
+  font-size: inherit;
+}
+
+/* ===========================================
+   SLIDE LAYOUT
+   =========================================== */
+
+.reveal .slides section {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: var(--slide-padding-top) var(--slide-padding) var(--slide-padding) var(--slide-padding) !important;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.reveal .slides section.stack {
+  padding: 0 !important;
+}
+
+.reveal .slides section > .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: var(--content-gap);
+  text-align: left;
+}
+
+.reveal .slides section > .footnote {
+  position: absolute;
+  bottom: 15px;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  font-size: var(--footnote-size);
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   SECTION DIVIDERS
+   =========================================== */
+
+.reveal .slides section.section-divider {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+
+.reveal-viewport.is-section-divider .slide-background.present {
+  background-color: var(--section-divider-bg) !important;
+}
+
+.reveal .slides section.section-divider h1 {
+  font-size: 52pt;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.reveal .slides section.section-divider p {
+  font-size: 20pt;
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   TEXT SIZE UTILITIES
+   =========================================== */
+
+.text-lg { font-size: 18pt !important; }
+.text-xl { font-size: 20pt !important; }
+.text-2xl { font-size: 24pt !important; }
+.text-3xl { font-size: 28pt !important; }
+.text-4xl { font-size: 32pt !important; }
+
+.text-muted { color: var(--muted-color) !important; }
+.text-center { text-align: center !important; }
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+.font-light { font-weight: 300; }
+.font-bold { font-weight: 600; }
+
+/* ===========================================
+   BLOCKQUOTES
+   =========================================== */
+
+.reveal blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+}
+
+.reveal blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   STAT BOX — 큰 숫자 + 라벨
+   =========================================== */
+
+.stat-box {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.stat-box .number {
+  font-family: var(--heading-font);
+  font-size: 36pt;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-box .label {
+  font-size: 12pt;
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   CONCEPT BOX — 아이콘 + 제목 + 설명
+   =========================================== */
+
+.concept-box {
+  background: var(--box-bg);
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  padding: 25px;
+}
+
+.concept-box p {
+  margin: 0;
+}
+
+/* ===========================================
+   DECORATIVE — 상단 그라데이션 라인
+   =========================================== */
+
+.reveal .slides section:not(.section-divider)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  opacity: 0.6;
+}

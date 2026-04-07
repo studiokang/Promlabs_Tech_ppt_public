@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제본스의 역설</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase text-muted" style="letter-spacing: 0.2em; font-size: 13pt;">Economics / Technology</p>
+        <h1 style="margin-top: 15px;">제본스의 역설</h1>
+        <p style="font-size: 22pt; color: #4ECDC4; margin-top: 15px;">효율이 높아질수록 소비는 왜 늘어나는가</p>
+        <p class="text-muted" style="margin-top: 40px; font-size: 14pt;">Jevons' Paradox, 1865</p>
+      </section>
+
+      <section id="slide-2">
+        <h2>William Stanley Jevons</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+            <div style="text-align: center;">
+              <div style="width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #4ECDC4 0%, #2a7a74 100%); margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-user" style="font-size: 60pt; color: #0a0a0f;"></i>
+              </div>
+              <p style="margin-top: 15px; font-size: 13pt;" class="text-muted">1835 - 1882</p>
+            </div>
+            <div>
+              <p class="text-xl">영국의 경제학자이자 논리학자</p>
+              <ul style="margin-top: 20px;">
+                <li class="fragment">한계효용 이론의 선구자</li>
+                <li class="fragment">1865년 <strong style="color: var(--secondary-color);">The Coal Question</strong> 출간</li>
+                <li class="fragment">석탄 효율 개선이 석탄 소비를 줄이지 않는다는 관찰</li>
+                <li class="fragment">이 관찰이 160년 뒤에도 유효</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="slide-3">
+        <h2>The Coal Question (1865)</h2>
+        <div class="content">
+          <blockquote style="margin: 20px 0 30px 0;">
+            <p class="text-xl" style="color: #c0c0c0;">"It is wholly a confusion of ideas to suppose that the economical use of fuel is equivalent to a diminished consumption. The very contrary is the truth."</p>
+            <cite>William Stanley Jevons</cite>
+          </blockquote>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="stat-box">
+              <p class="number" style="color: var(--primary-color);">1800</p>
+              <p class="label">와트의 증기기관 보급</p>
+            </div>
+            <div class="stat-box">
+              <p class="number" style="color: var(--secondary-color);">10x</p>
+              <p class="label">증기기관 효율 향상</p>
+            </div>
+            <div class="stat-box">
+              <p class="number" style="color: var(--secondary-color);">100x</p>
+              <p class="label">영국 석탄 소비 증가</p>
+            </div>
+          </div>
+          <p class="text-muted fragment" style="margin-top: 20px; text-align: center;">효율이 10배 올랐는데, 소비는 100배 늘었다</p>
+        </div>
+      </section>
+
+      <section id="divider-1" class="section-divider" data-state="is-section-divider">
+        <h1>역설의 핵심</h1>
+        <p>효율과 소비의 반직관적 관계</p>
+      </section>
+
+      <section id="slide-5">
+        <h2>직관 vs 현실</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 10px;">
+            <div class="concept-box" style="border-left: 4px solid var(--primary-color);">
+              <p style="font-size: 14pt; color: var(--primary-color); margin-bottom: 10px;" class="text-uppercase font-bold">우리의 직관</p>
+              <p class="text-xl">효율 향상</p>
+              <p style="font-size: 30pt; margin: 15px 0;">↓</p>
+              <p class="text-xl">단위당 비용 감소</p>
+              <p style="font-size: 30pt; margin: 15px 0;">↓</p>
+              <p class="text-xl" style="color: var(--primary-color);">총 소비 감소</p>
+            </div>
+            <div class="concept-box fragment" style="border-left: 4px solid var(--secondary-color);">
+              <p style="font-size: 14pt; color: var(--secondary-color); margin-bottom: 10px;" class="text-uppercase font-bold">실제 결과</p>
+              <p class="text-xl">효율 향상</p>
+              <p style="font-size: 30pt; margin: 15px 0;">↓</p>
+              <p class="text-xl">단위당 비용 감소</p>
+              <p style="font-size: 30pt; margin: 15px 0;">↓</p>
+              <p class="text-xl" style="color: var(--secondary-color);">총 소비 증가</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="slide-6">
+        <h2>현대의 제본스 역설</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="concept-box fragment">
+              <p style="font-size: 28pt; margin-bottom: 12px;"><i class="fa-solid fa-car" style="color: var(--primary-color);"></i></p>
+              <h3>자동차 연비</h3>
+              <p style="margin-top: 10px;">연비가 2배 좋아졌지만, 차량 대수와 주행거리가 폭증</p>
+              <p style="margin-top: 12px; color: var(--secondary-color); font-size: 14pt;">미국 총 연료 소비: 1960년 대비 2.5배</p>
+            </div>
+            <div class="concept-box fragment">
+              <p style="font-size: 28pt; margin-bottom: 12px;"><i class="fa-solid fa-lightbulb" style="color: var(--primary-color);"></i></p>
+              <h3>LED 조명</h3>
+              <p style="margin-top: 10px;">백열등 대비 에너지 90% 절감, 하지만 전 세계 조명 사용량은 계속 증가</p>
+              <p style="margin-top: 12px; color: var(--secondary-color); font-size: 14pt;">글로벌 조명 에너지: 연 1~2% 증가 추세</p>
+            </div>
+            <div class="concept-box fragment">
+              <p style="font-size: 28pt; margin-bottom: 12px;"><i class="fa-solid fa-hard-drive" style="color: var(--primary-color);"></i></p>
+              <h3>데이터 저장</h3>
+              <p style="margin-top: 10px;">GB당 비용이 수십만 원에서 수 원으로 하락, 전 세계 데이터 총량 폭발</p>
+              <p style="margin-top: 12px; color: var(--secondary-color); font-size: 14pt;">2010년 2ZB → 2025년 180ZB</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="divider-2" class="section-divider" data-state="is-section-divider">
+        <h1>왜 이런 일이 벌어지는가</h1>
+        <p>반등 효과의 메커니즘</p>
+      </section>
+
+      <section id="slide-8">
+        <h2>반등 효과 Rebound Effect</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+              <h3 style="color: var(--primary-color); margin-bottom: 15px;"><i class="fa-solid fa-arrow-rotate-left"></i> 직접 반등</h3>
+              <div class="concept-box">
+                <p>효율 향상 → 사용 비용 하락 → 같은 자원을 더 많이 사용</p>
+                <p style="margin-top: 12px; font-size: 14pt;" class="text-muted">연비 좋은 차를 사면 더 멀리 운전한다</p>
+              </div>
+              <h3 style="color: var(--secondary-color); margin-top: 25px; margin-bottom: 15px;"><i class="fa-solid fa-arrows-spin"></i> 간접 반등</h3>
+              <div class="concept-box">
+                <p>절약된 비용 → 다른 곳에 지출 → 그 소비도 자원을 사용</p>
+                <p style="margin-top: 12px; font-size: 14pt;" class="text-muted">전기세 아낀 돈으로 해외여행을 간다</p>
+              </div>
+            </div>
+            <div>
+              <h3 style="color: var(--secondary-color); margin-bottom: 15px;"><i class="fa-solid fa-explosion"></i> 거시 경제 효과</h3>
+              <div class="concept-box" style="height: calc(100% - 40px); display: flex; flex-direction: column; justify-content: center;">
+                <p>효율 향상이 경제 전체의 성장을 촉진</p>
+                <p style="margin-top: 15px;">→ 새로운 산업 창출</p>
+                <p>→ 새로운 수요 발생</p>
+                <p>→ 총 자원 소비 증가</p>
+                <p style="margin-top: 20px; font-size: 14pt; color: var(--secondary-color);">반등률이 100%를 초과하면 = 역화 효과(Backfire)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="slide-9">
+        <h2>AI 시대의 제본스 역설</h2>
+        <div class="content">
+          <p class="text-xl" style="margin-bottom: 20px;">AI가 효율을 높일수록, 총 컴퓨팅 수요는 더 빠르게 증가한다</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+            <div class="stat-box fragment">
+              <p class="number" style="color: var(--primary-color);">300x</p>
+              <p class="label">GPU 연산 효율 향상 (2012~2024)</p>
+            </div>
+            <div class="stat-box fragment">
+              <p class="number" style="color: var(--secondary-color);">10,000x</p>
+              <p class="label">같은 기간 AI 학습 연산량 증가</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px;">
+            <div class="concept-box fragment" style="border-left: 4px solid var(--primary-color);">
+              <p><strong style="color: var(--primary-color);">코딩 보조 AI</strong></p>
+              <p style="margin-top: 8px;">개발 생산성 향상 → 더 많은 소프트웨어 → 더 많은 서버 → 더 많은 전력</p>
+            </div>
+            <div class="concept-box fragment" style="border-left: 4px solid var(--secondary-color);">
+              <p><strong style="color: var(--secondary-color);">LLM 추론 비용 하락</strong></p>
+              <p style="margin-top: 8px;">API 호출 단가 급락 → 사용 사례 폭발 → 총 추론 연산량 급증</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="slide-10" class="section-divider" data-state="is-section-divider">
+        <h1 style="font-size: 40pt; line-height: 1.4;">효율은 문제의 해결이 아니라<br><span style="color: var(--secondary-color);">수요의 시작</span>이다</h1>
+        <p style="margin-top: 30px; max-width: 700px;">기술이 자원 사용을 줄여줄 거라는 기대는<br>160년간 반복적으로 빗나갔다.<br>효율 정책과 총량 규제는 함께 가야 한다.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(232, 232, 232, 0.8)',
+          borderColor: 'rgba(232, 232, 232, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
