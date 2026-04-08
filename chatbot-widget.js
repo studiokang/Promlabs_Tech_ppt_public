@@ -28,31 +28,39 @@
   const css = `
     .ppt-chat-fab {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #B165FB, #5EE3D1);
-      border: none;
+      bottom: 60px;
+      right: 24px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(13, 13, 21, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(177, 101, 251, 0.5);
       cursor: pointer;
-      box-shadow: 0 4px 20px rgba(177, 101, 251, 0.5);
+      box-shadow: 0 2px 12px rgba(177, 101, 251, 0.3);
       z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #0a0a0f;
-      font-size: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      color: #B165FB;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+    .ppt-chat-fab svg {
+      width: 18px;
+      height: 18px;
     }
     .ppt-chat-fab:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 28px rgba(177, 101, 251, 0.7);
+      border-color: #B165FB;
+      box-shadow: 0 4px 20px rgba(177, 101, 251, 0.6);
+      color: #5EE3D1;
+      transform: translateY(-1px);
     }
     .ppt-chat-panel {
       position: fixed;
-      bottom: 90px;
-      right: 20px;
+      bottom: 112px;
+      right: 24px;
       width: 380px;
       max-width: calc(100vw - 40px);
       height: 560px;
@@ -207,7 +215,7 @@
   // 위젯 DOM 생성
   const fab = document.createElement("button");
   fab.className = "ppt-chat-fab";
-  fab.innerHTML = "💬";
+  fab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
   fab.title = "PPT 챗봇";
   fab.setAttribute("aria-label", "챗봇 열기");
 
