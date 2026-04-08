@@ -52,8 +52,14 @@
           border-radius: 14px;
           padding: 36px 40px;
           width: 360px;
-          max-width: calc(100vw - 40px);
+          max-width: calc(100vw - 32px);
+          box-sizing: border-box;
           box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
+        }
+        @media (max-width: 600px) {
+          #ppt-gate .gate-card { padding: 28px 24px; border-radius: 12px; }
+          #ppt-gate h1 { font-size: 18px !important; }
+          #ppt-gate p { font-size: 12px !important; margin-bottom: 20px !important; }
         }
         #ppt-gate h1 {
           margin: 0 0 8px 0;

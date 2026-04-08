@@ -385,6 +385,31 @@
       text-align: center; padding: 28px 20px;
       line-height: 1.7;
     }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .ppt-chat-fab {
+        bottom: 16px;
+        right: 16px;
+      }
+      .ppt-chat-panel {
+        bottom: 70px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+        height: calc(100vh - 100px);
+        max-height: calc(100vh - 100px);
+        border-radius: 12px;
+      }
+      .ppt-chat-header { padding: 10px 14px; }
+      .ppt-chat-header h3 { font-size: 13px; }
+      .ppt-chat-header .ppt-chat-sub { font-size: 10px; }
+      .ppt-chat-messages { padding: 12px; }
+      .ppt-chat-msg { max-width: 92%; font-size: 13px; }
+      .ppt-chat-input-area { padding: 10px; }
+      .ppt-chat-input { font-size: 14px; } /* 14px 이상이어야 iOS 줌인 방지 */
+    }
   `;
   const styleEl = document.createElement("style");
   styleEl.textContent = css;
