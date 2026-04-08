@@ -6,7 +6,7 @@
 
   --heading-font: "Noto Sans KR", sans-serif;
   --body-font: "Noto Sans KR", sans-serif;
-  --mono-font: "JetBrains Mono", "Consolas", monospace;
+  --mono-font: "JetBrains Mono", "Consolas", "Noto Sans KR", monospace;
   --base-font-size: 32px;
   --text-size: 16pt;
   --h1-size: 44pt;
@@ -296,15 +296,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: #0a0a0f;
+  -webkit-text-fill-color: #0a0a0f;
   font-weight: 700;
-  font-size: 16pt;
-  margin-right: 12px;
+  font-size: 18pt;
+  margin-right: 14px;
   flex-shrink: 0;
+  vertical-align: middle;
 }
 
 /* ===========================================
