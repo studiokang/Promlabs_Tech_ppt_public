@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기술혁신팀 로드맵 2026</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../../password-gate.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="cover" class="section-divider" data-state="is-section-divider">
+        <h1>기술혁신팀 로드맵<br>2026</h1>
+        <p>CREUS 출시 로드맵 &middot; Promptly 운영 계획</p>
+        <p class="text-mono text-muted" style="font-size: 12pt; margin-top: 48px;">
+          주식회사 프롬랩스 &middot; 기술혁신팀<br>
+          원도연 &middot; 2026.04.10
+        </p>
+      </section>
+
+      <section id="purpose">
+        <h2>오늘 발표의 목적</h2>
+        <div class="content">
+          <blockquote class="text-xl"><strong>CREUS의 퍼블릭 출시까지의 실행 계획을 공유하고, 핵심 의사결정 사항에 대해 합의합니다.</strong></blockquote>
+          <p class="text-muted" style="margin-top: 18px;">오늘 다룰 내용</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 10px;">
+            <div class="card"><p><span class="badge">01</span> &nbsp; CREUS 월별 실행 계획 (4~8월)</p></div>
+            <div class="card"><p><span class="badge">02</span> &nbsp; 출시 4축 격차와 해소 전략</p></div>
+            <div class="card"><p><span class="badge">03</span> &nbsp; 주요 리스크와 대응</p></div>
+            <div class="card"><p><span class="badge">04</span> &nbsp; 경영진 판단이 필요한 미결 사항</p></div>
+          </div>
+          <p class="text-muted" style="margin-top: 14px; font-size: 13pt;">부록 &middot; Promptly 유지보수 계획</p>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <h2>팀 포트폴리오 한눈에</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr 0.8fr; gap: 18px;">
+            <div class="card card-gold">
+              <p><span class="badge badge-gold">핵심 제품 1</span></p>
+              <h3 style="margin-top: 8px;">CREUS <span class="text-muted" style="font-size: 13pt; font-weight: 400;">(Promptly Studio)</span></h3>
+              <p class="text-lg" style="margin: 6px 0;">AI 영상 제작 협업 워크스페이스</p>
+              <p class="text-muted"><strong class="text-secondary">팀 주력 (2~3명)</strong></p>
+              <p class="text-muted">MVP 완성 → <strong>퍼블릭 출시 준비 중</strong></p>
+              <p class="text-secondary"><strong>목표: 2026년 8월 말~9월 중 출시</strong></p>
+            </div>
+            <div class="card">
+              <p><span class="badge">핵심 제품 2</span></p>
+              <h3 style="margin-top: 8px;">Promptly</h3>
+              <p class="text-lg" style="margin: 6px 0;">AI 프롬프트 최적화 SaaS</p>
+              <p class="text-muted"><strong class="text-primary">메인 1명 최소 운영</strong></p>
+              <p class="text-muted">프로덕션 운영 중 (유지보수 모드)</p>
+              <p class="text-muted">TIPS 과제 '27.10까지 진행</p>
+            </div>
+            <div class="card">
+              <p><span class="badge">부가</span></p>
+              <h3 style="margin-top: 8px;">외부 수주 · 내부 툴</h3>
+              <p class="text-muted" style="margin-top: 6px;">소규모 외부 프로젝트</p>
+              <p class="text-muted">내부 툴/자동화</p>
+              <p class="text-muted"><strong>리소스 유동 배분</strong></p>
+            </div>
+          </div>
+          <p class="text-muted text-center" style="margin-top: 18px;"><strong class="text-secondary">CREUS</strong>에 집중, <strong class="text-primary">Promptly</strong>는 최소 운영, 부가 프로젝트는 상황 대응</p>
+        </div>
+      </section>
+
+      <section id="creus-intro">
+        <h2>CREUS — 제품 소개</h2>
+        <div class="content">
+          <blockquote class="text-xl">기획서 한 장으로 시작해, AI가 생성한 영상 구조 위에서 팀과 협업하며 결과물을 제작하는 <strong class="text-secondary">AI 영상 제작 협업 워크스페이스</strong></blockquote>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px;">
+            <div>
+              <p class="text-lg text-primary"><strong>핵심 가치 제안</strong></p>
+              <ul class="text-lg">
+                <li>기획서(텍스트/PDF) → AI가 <strong>Scene-Cut 구조</strong>와 제작 가이드 자동 생성</li>
+                <li>컷 단위로 가이드라인·프롬프트·결과물 관리</li>
+                <li>팀원 <strong>실시간 협업</strong> (누가 어디를 작업 중인지 추적)</li>
+                <li>"영상 1편 = 수십 컷의 분산 작업물"을 <strong>한 캔버스에서</strong></li>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="card"><h3 style="font-size: 14pt;">타겟 사용자</h3><p class="text-lg">영상 콘텐츠 제작팀<br>(크리에이터, 프로덕션 하우스)</p></div>
+              <div class="card"><h3 style="font-size: 14pt;">출시 형태</h3><p class="text-lg">외부 퍼블릭 (누구나 가입)<br>+ B2B 영업</p></div>
+              <div class="card card-gold"><h3 style="font-size: 14pt;">현재 단계</h3><p class="text-lg">MVP 완성 &middot; 내부 도그푸딩 완료<br><strong class="text-secondary">→ 출시 준비 진입</strong></p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="creus-gap">
+        <h2>CREUS — 현재 상태와 출시 격차</h2>
+        <div class="content">
+          <p class="text-lg"><strong class="text-secondary">출시 시점은 이 격차 해소에 필요한 시간의 결론입니다.</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 18%;">축</th>
+                <th style="width: 30%;">출시 요건</th>
+                <th style="width: 38%;">현재 상태</th>
+                <th style="width: 14%;">격차</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>워크플로<br>완결성</strong></td>
+                <td>기획 → AI 분석 → 제작 → 결과물까지 도구 안에서 완결</td>
+                <td class="text-muted">AI 결과물 생성 미연동. 외부 도구로 만들어 수동 업로드</td>
+                <td class="text-accent"><strong>높음</strong></td>
+              </tr>
+              <tr>
+                <td><strong>협업 인프라</strong></td>
+                <td>권한/역할 분리, 알림, 데이터 안전성</td>
+                <td class="text-muted">전부 미구현. 동일 권한, 알림 없음, 즉시 영구 삭제</td>
+                <td class="text-accent"><strong>높음</strong></td>
+              </tr>
+              <tr>
+                <td><strong>제품 품질</strong></td>
+                <td>UI 일관성, 안정성, 온보딩</td>
+                <td class="text-muted">디자인 시스템 적용 진행 중 &middot; 도그푸딩 21건 피드백</td>
+                <td class="text-secondary"><strong>중간</strong></td>
+              </tr>
+              <tr>
+                <td><strong>상용화 요건</strong></td>
+                <td>법무, 운영 도구, 지표, B2B 대응</td>
+                <td class="text-muted">전부 미구현</td>
+                <td class="text-accent"><strong>높음</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-muted" style="font-size: 13pt; margin-top: 8px;">"더 빨리 출시할 수 없나?" → 각 축의 최소선을 유지하며 트레이드오프 대화로 전환</p>
+        </div>
+      </section>
+
+      <section id="creus-target">
+        <h2>CREUS — 출시 목표</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px;">
+            <div class="kpi card card-gold"><span class="kpi-num">8~9월</span><span class="kpi-label">출시 시점 (2026년)</span></div>
+            <div class="kpi card"><span class="kpi-num">6월</span><span class="kpi-label">대외 시연 시작</span></div>
+            <div class="kpi card"><span class="kpi-num">B2C + B2B</span><span class="kpi-label">병행 출시 전략</span></div>
+          </div>
+          <p class="text-muted" style="font-size: 13pt; margin-bottom: 8px;">월별 테마 타임라인</p>
+          <div class="timeline">
+            <div class="timeline-item"><span class="month">4월</span><span class="theme">토대 다지기 + 전체 계획 확정</span></div>
+            <div class="timeline-item"><span class="month">5월</span><span class="theme">기술 기반 + 협업 인프라</span></div>
+            <div class="timeline-item highlight"><span class="month">6월</span><span class="theme">핵심 가치(AI 생성) + 시연 시작</span></div>
+            <div class="timeline-item"><span class="month">7월</span><span class="theme">상용화 마무리 + 품질 확보</span></div>
+            <div class="timeline-item highlight"><span class="month">8월</span><span class="theme">안정화 + <strong>출시</strong></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="m-april">
+        <h2><span class="step-num">4</span>월 &middot; 토대 다지기</h2>
+        <div class="content">
+          <p class="text-lg"><strong>테마</strong> &mdash; 크리에이티브팀이 쓸 수 있는 수준으로 안정화하면서, 출시까지의 전체 실행 계획을 확정한다.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 14px;">
+            <div class="card">
+              <h3>개발 작업</h3>
+              <p class="text-muted" style="font-size: 12pt;">피그마 비충돌 항목 우선</p>
+              <ul style="margin-top: 8px;">
+                <li><strong>P0 긴급 버그 3건</strong> 수정 (전역규칙 삭제, 프로젝트 설명 저장, 아이콘 겹침)</li>
+                <li>P1 버그/개선 (AI 분석 한글 번역, Restore 미반영, 버전 라벨, Scene 일괄 삭제)</li>
+                <li>디자인 시스템 적용 (진행 중)</li>
+              </ul>
+            </div>
+            <div class="card card-gold">
+              <h3>계획 작업 (이달 핵심 산출물)</h3>
+              <ul style="margin-top: 8px;">
+                <li>피그마 이미지 기반 <strong>기능 명세서</strong> 완성</li>
+                <li>5~8월 상세 작업 계획 + 전체 일정 산정</li>
+                <li>새 디자인 방향 검토</li>
+              </ul>
+            </div>
+          </div>
+          <blockquote style="margin-top: 16px;"><strong class="text-success">4월 말 체크포인트</strong> &nbsp; 긴급 버그 0건 &middot; 기능 명세서 완성 &middot; 실행 계획서 확정</blockquote>
+        </div>
+      </section>
+
+      <section id="m-may">
+        <h2><span class="step-num">5</span>월 &middot; 기술 기반 + 협업 인프라</h2>
+        <div class="content">
+          <p class="text-lg"><strong>테마</strong> &mdash; 외부 사용자를 받기 위한 기술 인프라를 깐다. 이 위에 6~7월의 기능이 올라간다.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px;">
+            <div class="card">
+              <h3 style="font-size: 16pt;">기술 기반</h3>
+              <ul style="font-size: 14pt;">
+                <li>AI 기획서 확정 플로우 트랜잭션 보강</li>
+                <li>테스트 인프라 구축 시작 (크리티컬 경로부터)</li>
+                <li>DB/인프라 정비</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 16pt;">협업 인프라</h3>
+              <ul style="font-size: 14pt;">
+                <li><strong>알림 시스템 기초</strong> (Socket.IO 위에 — 리뷰 요청, 멤버 관련)</li>
+                <li>전역 규칙 자동 상속 (Page → Cut)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 16pt;">UI + 신기능</h3>
+              <ul style="font-size: 14pt;">
+                <li>디자인 시스템 적용 마무리</li>
+                <li>새 디자인 방향 확정·적용</li>
+                <li>피그마 기반 신기능 착수 (우선순위 항목)</li>
+              </ul>
+            </div>
+          </div>
+          <blockquote style="margin-top: 16px;"><strong class="text-success">5월 말 체크포인트</strong> &nbsp; 알림이 동작하는 협업 시연 가능 &middot; 기술 기반 안정화</blockquote>
+        </div>
+      </section>
+
+      <section id="m-june">
+        <h2><span class="step-num">6</span>월 &middot; 핵심 가치 + 시연 시작</h2>
+        <div class="content">
+          <p class="text-lg"><strong>테마</strong> &mdash; AI 생성 기능과 핵심 신기능을 구현하고, 대외 시연을 시작한다.</p>
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; margin-top: 14px;">
+            <div>
+              <p class="text-primary"><strong>핵심 작업</strong></p>
+              <ul class="text-lg">
+                <li><strong class="text-secondary">시연용 안정 브랜치 분리</strong> (6월 초)</li>
+                <li><strong class="text-secondary">AI 이미지 생성 v1</strong> &mdash; 최소 1개 모델 연동으로 "기획서 → AI 분석 → 이미지 생성"까지 도구 안에서 완결</li>
+                <li><strong>권한/역할 분리</strong> &mdash; 최소 Owner/Editor (B2B 조직 단위 검토)</li>
+                <li>피그마 신규 모듈 구현 (명세 우선순위)</li>
+                <li>활동 추적 코드 심기 (데이터 수집 시작)</li>
+              </ul>
+            </div>
+            <div class="card card-gold">
+              <h3>이 달의 의미</h3>
+              <p class="text-lg" style="margin-top: 6px;">제품의 가장 큰 격차(<strong>AI 생성 미연동</strong>)를 해소하는 달.</p>
+              <p class="text-lg" style="margin-top: 8px;">이 시점부터 CREUS의 <strong class="text-secondary">핵심 가치 제안이 실제로 동작</strong>합니다.</p>
+            </div>
+          </div>
+          <blockquote style="margin-top: 16px;"><strong class="text-success">6월 말 체크포인트</strong> &nbsp; AI가 이미지를 생성하는 핵심 플로우 시연 가능</blockquote>
+        </div>
+      </section>
+
+      <section id="m-jul-aug">
+        <h2><span class="step-num">7</span>~<span class="step-num">8</span>월 &middot; 상용화 + 출시</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+            <div class="card">
+              <h3>7월 &middot; 상용화 마무리</h3>
+              <p class="text-muted" style="font-size: 12pt;">퍼블릭 출시와 B2B에 필요한 나머지 요건을 채우고 품질 확보</p>
+              <ul style="font-size: 14pt; margin-top: 6px;">
+                <li>AI 생성 확장 (추가 모델, 영상 생성 검토)</li>
+                <li>Soft delete (휴지통) &mdash; 데이터 안전성</li>
+                <li>법무 최소선 (이용약관, 개인정보, 탈퇴)</li>
+                <li>온보딩/사용 가이드</li>
+                <li>Admin/운영 도구 최소 버전</li>
+                <li>모니터링/에러 트래킹</li>
+                <li>피그마 잔여 기능 + QA 집중</li>
+              </ul>
+              <p class="text-secondary text-center" style="margin-top: 10px;"><strong>7월 말 &middot; Go/No-Go 판단</strong></p>
+            </div>
+            <div class="card card-gold">
+              <h3>8월 &middot; 안정화 + 출시</h3>
+              <p class="text-muted" style="font-size: 12pt;">버그픽스, 성능 최적화, 최종 출시 준비</p>
+              <ul style="font-size: 14pt; margin-top: 6px;">
+                <li>버그픽스 + 성능 최적화</li>
+                <li>프라이싱/결제 시스템<br>(B2B 포함 &mdash; 시점·범위 미확정)</li>
+              </ul>
+              <div style="margin-top: 20px; padding: 14px; border: 1px solid var(--secondary-color); border-radius: 8px; background: rgba(244, 194, 69, 0.08); text-align: center;">
+                <p class="text-2xl"><strong class="text-secondary">출시</strong></p>
+                <p class="text-lg">8월 말 ~ 9월 중</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="risks">
+        <h2>CREUS — 리스크와 대응</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+            <div class="card card-risk">
+              <h3>1. 피그마 신기능 물량</h3>
+              <p class="text-muted" style="font-size: 13pt;">대표님 피그마 추가 기능 상당량, 6~7월에도 추가 가능성</p>
+              <p class="text-lg" style="margin-top: 8px;"><strong class="text-primary">대응:</strong> capacity 70%만 계획, 30%는 버퍼. 모든 기능을 "출시 필수" vs "출시 후"로 분류 후 <strong>경영진 합의</strong>.</p>
+            </div>
+            <div class="card card-risk">
+              <h3>2. AI 생성 모델 선정·연동</h3>
+              <p class="text-muted" style="font-size: 13pt;">어떤 모델을 어떤 방식으로 연동할지 미정 (API, 비용, 에러 핸들링)</p>
+              <p class="text-lg" style="margin-top: 8px;"><strong class="text-primary">대응:</strong> <strong>5월 중 모델 선정 + API 검증 완료</strong>. 1개 모델(이미지)로 시작, 검증 후 확장.</p>
+            </div>
+            <div class="card card-risk">
+              <h3>3. 인력 (2~3명)</h3>
+              <p class="text-muted" style="font-size: 13pt;">전체 scope 대비 인력 빠듯, 병렬 처리 한계</p>
+              <p class="text-lg" style="margin-top: 8px;"><strong class="text-primary">대응:</strong> 월별 scope를 2~3명 기준으로 현실 유지. <strong>시연 전 필수 / 출시 전 필수 / 출시 후 가능</strong>으로 역산 배치.</p>
+            </div>
+            <div class="card card-risk">
+              <h3>4. 시연과 개발 병행 (6월~)</h3>
+              <p class="text-muted" style="font-size: 13pt;">6월부터 시연 시작, 불안정 버전 노출 위험</p>
+              <p class="text-lg" style="margin-top: 8px;"><strong class="text-primary">대응:</strong> <strong>시연용 안정 브랜치 분리 운영</strong>. 개발은 메인에서, 시연은 안정 브랜치에서.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="decisions">
+        <h2>CREUS — 의사결정 요청 사항</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+            <div>
+              <p><span class="badge badge-risk">확정 필요</span> <span class="text-muted" style="font-size: 12pt;">&nbsp;출시 일정에 직접 영향</span></p>
+              <div class="card card-risk" style="margin-top: 10px;">
+                <p class="text-lg"><strong>1. 피그마 기능 분류 합의</strong></p>
+                <p style="font-size: 13pt;">"출시 필수(Must)" vs "출시 후 업데이트(Nice/Post)" 합의 → 출시 시점 확정</p>
+              </div>
+              <div class="card card-risk" style="margin-top: 10px;">
+                <p class="text-lg"><strong>2. AI 생성 모델 선정</strong></p>
+                <p style="font-size: 13pt;">이미지 생성 모델 선택 (비용, 품질, 라이선스)</p>
+              </div>
+              <div class="card card-risk" style="margin-top: 10px;">
+                <p class="text-lg"><strong>3. 프라이싱/결제 시점</strong></p>
+                <p style="font-size: 13pt;">출시 시점에 결제까지 vs 초기 무료/제한 운영</p>
+              </div>
+            </div>
+            <div>
+              <p><span class="badge">방향 확인</span> <span class="text-muted" style="font-size: 12pt;">&nbsp;전략 방향 설정</span></p>
+              <div class="card" style="margin-top: 10px;">
+                <p class="text-lg"><strong>4. B2B 대응 범위</strong></p>
+                <p style="font-size: 13pt;">팀/조직 관리, 프로젝트 공유 어디까지 출시에 포함</p>
+              </div>
+              <div class="card" style="margin-top: 10px;">
+                <p class="text-lg"><strong>5. 인증 확장</strong></p>
+                <p style="font-size: 13pt;">Google OAuth 유지 vs 이메일 가입 추가</p>
+              </div>
+              <div class="card" style="margin-top: 10px;">
+                <p class="text-lg"><strong>6. 챗봇(AI 어시스턴트) 범위</strong></p>
+                <p style="font-size: 13pt;">제품 내 AI 작업 도우미의 범위와 시점</p>
+              </div>
+              <div class="card" style="margin-top: 10px;">
+                <p class="text-lg"><strong>7. Replit 인프라 한계</strong></p>
+                <p style="font-size: 13pt;">동시 사용자, 스토리지 비용 등 상용화 검토</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="promptly">
+        <h2>Promptly — 유지보수 계획 <span class="text-muted" style="font-size: 14pt; font-weight: 400;">(부록)</span></h2>
+        <div class="content">
+          <p class="text-lg"><strong>기본 전제</strong> &mdash; CREUS가 주력 개발 트랙. Promptly는 <strong class="text-primary">메인 1명 최소 운영 체제</strong>로 서비스 안정성과 TIPS 과제 의무를 지킨다.</p>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px;">
+            <div class="card">
+              <p><span class="badge">Phase 1</span></p>
+              <h3 style="font-size: 15pt; margin-top: 6px;">버그 수정</h3>
+              <p style="font-size: 12pt;">구독/플랜/결제/크레딧 알려진 버그 해결</p>
+              <p class="text-secondary" style="font-size: 12pt; margin-top: 6px;"><strong>매출 직결 결제·구독 안정성</strong></p>
+            </div>
+            <div class="card">
+              <p><span class="badge">Phase 2</span></p>
+              <h3 style="font-size: 15pt; margin-top: 6px;">코드 건강성</h3>
+              <p style="font-size: 12pt;">storage.ts God Object 분리, 컨트롤러 분할, 타입 정리, 핵심 경로 테스트</p>
+              <p class="text-secondary" style="font-size: 12pt; margin-top: 6px;"><strong>운영 사고 예방 + 유지보수 속도</strong></p>
+            </div>
+            <div class="card">
+              <p><span class="badge">Phase 3</span></p>
+              <h3 style="font-size: 15pt; margin-top: 6px;">운영 개선</h3>
+              <p style="font-size: 12pt;">Admin UI, 오래된 AI 모델 교체, 모델 교체 자동화, 보안 강화</p>
+              <p class="text-secondary" style="font-size: 12pt; margin-top: 6px;"><strong>최소 인원 운영 가능 체제</strong></p>
+            </div>
+            <div class="card">
+              <p><span class="badge">Phase 4</span></p>
+              <h3 style="font-size: 15pt; margin-top: 6px;">TIPS 과제</h3>
+              <p style="font-size: 12pt;">정부 과제 의무 이행 (27.10 완료). Phase 1~3과 병행.</p>
+              <p class="text-secondary" style="font-size: 12pt; margin-top: 6px;"><strong>정부 과제 의무 이행</strong></p>
+            </div>
+          </div>
+          <div style="margin-top: 14px; padding: 12px 16px; background: rgba(232, 93, 117, 0.08); border: 1px solid rgba(232, 93, 117, 0.3); border-radius: 8px;">
+            <p class="text-lg"><strong class="text-accent">관통 항목</strong> &nbsp; 긴급 운영 이슈(장애, 보안, 외부 API 변경)는 전 Phase에 걸쳐 상시 대응</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="next-steps">
+        <h2>다음 단계 &amp; 마무리</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+            <div class="card card-gold">
+              <h3>즉시 실행 (4월 중)</h3>
+              <ul>
+                <li>P0 긴급 버그 3건 수정</li>
+                <li>피그마 기능 명세서 완성</li>
+                <li>5~8월 상세 작업 계획 + 일정 산정</li>
+                <li>Promptly Phase 1 (알려진 버그 수정) 착수</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>다음 보고 시점</h3>
+              <ul>
+                <li><strong class="text-primary">5월 초</strong> &middot; 기능 명세서 기반 Must/Nice/Post 분류 결과 + 상세 일정</li>
+                <li><strong class="text-primary">6월 중</strong> &middot; 첫 대외 시연 결과 + AI 생성 v1 진행</li>
+                <li><strong class="text-secondary">7월 말</strong> &middot; Go/No-Go 판단</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top: 18px; padding: 16px 22px; background: rgba(74, 144, 226, 0.08); border: 1px solid var(--primary-color); border-radius: 10px;">
+            <p class="text-lg text-primary"><strong>경영진에 요청드리는 것</strong></p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px;">
+              <div><p><span class="check-mark">&#10003;</span>피그마 기능 분류<br><span class="text-muted" style="font-size: 12pt;">합의 참여</span></p></div>
+              <div><p><span class="check-mark">&#10003;</span>AI 모델 선정<br><span class="text-muted" style="font-size: 12pt;">비용·품질 결정</span></p></div>
+              <div><p><span class="check-mark">&#10003;</span>프라이싱·B2B<br><span class="text-muted" style="font-size: 12pt;">전략 방향</span></p></div>
+            </div>
+          </div>
+          <p class="text-center text-muted" style="margin-top: 16px; font-size: 13pt;">감사합니다 &middot; 질의응답</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+  <script src="../../chatbot-widget.js"></script>
+</body>
+</html>
