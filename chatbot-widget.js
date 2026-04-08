@@ -24,6 +24,28 @@
     return document.title || "PPT";
   }
 
+  // 현재 보고 있는 슬라이드 정보 추출
+  function getCurrentSlideInfo() {
+    try {
+      const reveal = window.Reveal;
+      if (!reveal || typeof reveal.getCurrentSlide !== "function") return null;
+      const slide = reveal.getCurrentSlide();
+      if (!slide) return null;
+      const indices = reveal.getIndices(slide);
+      const totalH = reveal.getTotalSlides();
+      const title = slide.querySelector("h1, h2, h3")?.innerText?.trim() || "";
+      const text = slide.innerText.replace(/\s+/g, " ").trim().slice(0, 1500);
+      return {
+        index: indices.h + 1,
+        total: totalH,
+        title,
+        text,
+      };
+    } catch {
+      return null;
+    }
+  }
+
   // 위젯 스타일 주입
   const css = `
     .ppt-chat-fab {
@@ -304,6 +326,7 @@
           question,
           pptTitle: getPptTitle(),
           pptContext: extractPptText().slice(0, 28000),
+          currentSlide: getCurrentSlideInfo(),
         }),
       });
       typing.remove();
