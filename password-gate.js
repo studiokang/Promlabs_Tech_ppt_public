@@ -8,7 +8,10 @@
  * 진짜 보안이 필요하면 Cloudflare Access 같은 서버 사이드 인증을 쓰세요.
  */
 (function () {
-  const PASSWORD_HASH = "9d8f66ade47145a23ef1ba82d056088b20c63f9dabf871d7dd9bd9629c556690";
+  const PASSWORD_HASHES = [
+    "9d8f66ade47145a23ef1ba82d056088b20c63f9dabf871d7dd9bd9629c556690", // prom0718
+    "cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481", // 1212
+  ];
   const STORAGE_KEY = "promlabs_ppt_auth";
   const TTL_DAYS = 7;
 
@@ -18,7 +21,7 @@
     if (raw) {
       const data = JSON.parse(raw);
       const ageMs = Date.now() - (data.ts || 0);
-      if (data.hash === PASSWORD_HASH && ageMs < TTL_DAYS * 86400000) {
+      if (PASSWORD_HASHES.includes(data.hash) && ageMs < TTL_DAYS * 86400000) {
         return; // 통과
       }
     }
@@ -149,7 +152,7 @@
       const pw = input.value;
       if (!pw) { btn.disabled = false; return; }
       const h = await sha256(pw);
-      if (h === PASSWORD_HASH) {
+      if (PASSWORD_HASHES.includes(h)) {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify({ hash: h, ts: Date.now() }));
         } catch {}
