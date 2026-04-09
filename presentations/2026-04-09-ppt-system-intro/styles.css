@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ================================================
+   Promlabs Tech PPT — 시스템 소개 (사내 발표용)
+   Palette: Soft Pastel — Lavender + Violet + Cyan
+   ================================================ */
+
+:root {
+  --background-color: #f8f5ff;
+  --section-divider-bg: #efe9ff;
+
+  --heading-font: "Noto Sans KR", sans-serif;
+  --body-font: "Noto Sans KR", sans-serif;
+  --mono-font: "JetBrains Mono", "Consolas", "Noto Sans KR", monospace;
+  --base-font-size: 32px;
+  --text-size: 16pt;
+  --h1-size: 44pt;
+  --h2-size: 30pt;
+  --h3-size: 22pt;
+  --footnote-size: 11pt;
+
+  --primary-color: #8b5cf6;    /* 바이올렛 */
+  --secondary-color: #06b6d4;  /* 시안 */
+  --accent-color: #ec4899;     /* 핑크 */
+  --success-color: #10b981;    /* 에메랄드 */
+  --text-color: #2d1b4e;       /* 딥 인디고 */
+  --muted-color: #7a6b9a;      /* 뮤트 라벤더 */
+  --strong-color: #1a0b33;
+  --line-color: #e0d4f7;
+  --card-bg: rgba(139, 92, 246, 0.06);
+  --card-border: rgba(139, 92, 246, 0.22);
+  --code-bg: #efe9ff;
+
+  --slide-padding: 60px;
+  --slide-padding-top: 40px;
+  --content-gap: 22px;
+  --box-radius: 12px;
+}
+
+/* ===========================================
+   BASE
+   =========================================== */
+
+.reveal {
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+}
+.reveal strong, .reveal b { font-weight: 700; color: var(--strong-color); }
+
+.reveal-viewport {
+  background-color: var(--background-color);
+  background-image: radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.10) 1px, transparent 0);
+  background-size: 44px 44px;
+  animation: gridDrift 8s ease-in-out infinite alternate;
+}
+@keyframes gridDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 22px 22px; }
+}
+
+.reveal-viewport.is-section-divider .slide-background.present {
+  background-color: var(--section-divider-bg) !important;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: var(--heading-font);
+  text-transform: none;
+  color: var(--strong-color);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.reveal h1 { font-size: var(--h1-size); }
+.reveal h2 {
+  font-size: var(--h2-size);
+  margin-bottom: 0;
+  background: linear-gradient(90deg, var(--strong-color) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.reveal h3 { font-size: var(--h3-size); color: var(--primary-color); }
+
+.reveal p, .reveal li, .reveal td, .reveal th, .reveal blockquote {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.reveal code {
+  font-family: var(--mono-font);
+  background: var(--code-bg);
+  color: var(--primary-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--line-color);
+}
+
+/* ===========================================
+   LISTS
+   =========================================== */
+
+.reveal ul { list-style: none; padding-left: 0; margin: 10px 0; }
+.reveal ol { padding-left: 28px; margin: 10px 0; }
+.reveal ol li { margin-bottom: 6px; }
+
+.reveal ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+}
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 7px;
+  height: 7px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+.reveal ul ul li::before {
+  background: var(--muted-color);
+  width: 5px;
+  height: 5px;
+  box-shadow: none;
+}
+
+/* ===========================================
+   LAYOUT
+   =========================================== */
+
+.reveal .slides section {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: var(--slide-padding-top) var(--slide-padding) var(--slide-padding) var(--slide-padding) !important;
+  box-sizing: border-box;
+  text-align: left;
+}
+.reveal .slides section.stack { padding: 0 !important; }
+.reveal .slides section > .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--content-gap);
+  text-align: left;
+}
+.reveal .slides section > .footnote {
+  position: absolute;
+  bottom: 15px;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  font-size: var(--footnote-size);
+  color: var(--muted-color);
+}
+
+/* 상단 데코 라인 */
+.reveal .slides section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+  background-size: 200% 100%;
+  animation: lineFlow 5s linear infinite;
+}
+@keyframes lineFlow {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+.reveal .slides section.section-divider::before { display: none; }
+
+/* ===========================================
+   SECTION DIVIDER
+   =========================================== */
+
+.reveal .slides section.section-divider {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.section-divider h1 {
+  font-size: 54pt;
+  text-align: center;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: dividerGlow 7s ease-in-out infinite;
+}
+@keyframes dividerGlow {
+  0%, 100% { filter: drop-shadow(0 4px 18px rgba(139, 92, 246, 0.20)); }
+  50%      { filter: drop-shadow(0 6px 28px rgba(139, 92, 246, 0.40)); }
+}
+.reveal .slides section.section-divider p {
+  font-size: 18pt;
+  color: var(--muted-color);
+  margin-top: 18px;
+}
+
+/* ===========================================
+   TEXT UTILITIES
+   =========================================== */
+
+.text-lg { font-size: 18pt !important; }
+.text-xl { font-size: 20pt !important; }
+.text-2xl { font-size: 24pt !important; }
+.text-3xl { font-size: 28pt !important; }
+.text-4xl { font-size: 32pt !important; }
+.text-muted { color: var(--muted-color) !important; }
+.text-center { text-align: center !important; }
+.text-primary { color: var(--primary-color) !important; }
+.text-secondary { color: var(--secondary-color) !important; }
+.text-accent { color: var(--accent-color) !important; }
+.text-success { color: var(--success-color) !important; }
+.text-mono { font-family: var(--mono-font) !important; }
+
+/* ===========================================
+   COMPONENTS
+   =========================================== */
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 18px 22px;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.06);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.18);
+  transform: translateY(-2px);
+}
+.card.fragment.visible {
+  animation: cardShine 1.6s ease-out;
+}
+@keyframes cardShine {
+  0%   { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.06); }
+  50%  { box-shadow: 0 8px 32px rgba(139, 92, 246, 0.35); }
+  100% { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.06); }
+}
+.card h3 {
+  margin: 0 0 6px 0;
+  font-size: 17pt;
+}
+.card p { margin: 0; }
+
+.card-cyan {
+  border-color: rgba(6, 182, 212, 0.30);
+  background: #f0fdff;
+}
+.card-cyan h3 { color: var(--secondary-color); }
+
+.card-pink {
+  border-color: rgba(236, 72, 153, 0.30);
+  background: #fdf2f8;
+}
+.card-pink h3 { color: var(--accent-color); }
+
+.card-ghost {
+  background: rgba(139, 92, 246, 0.04);
+  border: 1px dashed var(--card-border);
+  box-shadow: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 11px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 11pt;
+  font-weight: 600;
+  font-family: var(--mono-font);
+  letter-spacing: 0.02em;
+}
+.badge-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+.badge-pink {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  font-weight: 700;
+  font-size: 18pt;
+  margin-right: 14px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.kpi {
+  text-align: center;
+  padding: 24px 16px;
+}
+.kpi .kpi-num {
+  display: block;
+  font-size: 48pt;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+.kpi .kpi-label {
+  display: block;
+  font-size: 13pt;
+  color: var(--muted-color);
+  margin-top: 6px;
+}
+
+/* ===========================================
+   TABLES
+   =========================================== */
+
+.reveal table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+}
+.reveal table th {
+  background: rgba(139, 92, 246, 0.10);
+  color: var(--primary-color);
+  padding: 11px 14px;
+  text-align: left;
+  border: 1px solid var(--line-color);
+  font-weight: 600;
+  font-size: 14pt;
+}
+.reveal table td {
+  padding: 11px 14px;
+  border: 1px solid var(--line-color);
+  color: var(--text-color);
+  font-size: 14pt;
+}
+
+/* ===========================================
+   BLOCKQUOTES
+   =========================================== */
+
+.reveal blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding: 10px 20px;
+  margin: 16px 0;
+  font-style: normal;
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ===========================================
+   PROGRESS BAR + CONTROLS
+   =========================================== */
+
+.reveal .progress { height: 3px; color: var(--primary-color); }
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+.reveal .slide-number {
+  background: rgba(239, 233, 255, 0.8);
+  color: var(--muted-color);
+  font-family: var(--mono-font);
+}
+.reveal .controls { color: var(--primary-color); }
+
+/* ===========================================
+   STEP 플로우 (5단계 가로 배열)
+   =========================================== */
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+.flow-item {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.06);
+  position: relative;
+}
+.flow-item .flow-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  font-weight: 700;
+  font-size: 16pt;
+  margin-bottom: 8px;
+}
+.flow-item .flow-label {
+  display: block;
+  font-size: 13pt;
+  line-height: 1.4;
+  color: var(--text-color);
+  word-break: keep-all;
+}
+
+/* ===========================================
+   금지 표현 박스
+   =========================================== */
+
+.forbidden-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.forbidden-box .no-list,
+.forbidden-box .ok-list {
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 14pt;
+}
+.forbidden-box .no-list {
+  background: #fdf2f8;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  color: var(--accent-color);
+}
+.forbidden-box .ok-list {
+  background: #ecfdf5;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success-color);
+}
+.forbidden-box strong { color: inherit; }
+
+/* ===========================================
+   챗봇 목업
+   =========================================== */
+
+.chat-mock {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);
+  font-size: 13pt;
+}
+.chat-mock .chat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-color);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.chat-mock .chat-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--success-color);
+  box-shadow: 0 0 8px var(--success-color);
+}
+.chat-mock .msg {
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+.chat-mock .msg-user {
+  background: rgba(139, 92, 246, 0.10);
+  color: var(--strong-color);
+  text-align: right;
+  margin-left: 40px;
+}
+.chat-mock .msg-bot {
+  background: #f8f5ff;
+  border: 1px solid var(--line-color);
+  color: var(--text-color);
+  margin-right: 40px;
+}

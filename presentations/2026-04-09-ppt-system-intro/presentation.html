@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promlabs Tech PPT — 시스템 소개</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="../../password-gate.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Cover -->
+      <section id="cover" class="section-divider" data-state="is-section-divider">
+        <h1>Promlabs<br>Tech PPT</h1>
+        <p>기술혁신팀 발표자료 제작·배포 시스템</p>
+        <p class="text-mono text-muted" style="font-size: 12pt; margin-top: 48px;">
+          주식회사 프롬랩스 &middot; 기술혁신팀<br>
+          원도연 &middot; 2026.04.09
+        </p>
+      </section>
+
+      <!-- 2. Purpose -->
+      <section id="purpose">
+        <h2>발표자료, 저는 만들 줄 모릅니다<br>(진짜로)</h2>
+        <div class="content">
+          <blockquote class="text-xl">파워포인트를 열 때마다 처음부터 시작합니다.<br>매번 <strong>레이아웃을 고민하고</strong>, <strong>톤을 다시 정하고</strong>, <strong>배포까지 손으로 합니다.</strong></blockquote>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px;">
+            <div class="card card-pink">
+              <h3>반복 작업</h3>
+              <p class="text-muted">자료마다 디자인을 새로 짬</p>
+            </div>
+            <div class="card card-pink">
+              <h3>일관성 부재</h3>
+              <p class="text-muted">팀 안에서도 자료 결이 제각각</p>
+            </div>
+            <div class="card card-pink">
+              <h3>배포 번거로움</h3>
+              <p class="text-muted">공유 링크를 매번 손으로</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The Answer -->
+      <section id="answer">
+        <h2>한 번 만든 규칙으로<br>모든 발표를 생산합니다</h2>
+        <div class="content">
+          <blockquote class="text-xl"><strong>Git push 한 번 = 배포 완료.</strong><br>디자인·톤은 규칙으로 박혀 있고, 청중용 AI 챗봇까지 자동 장착됩니다.</blockquote>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px;">
+            <div class="kpi card"><span class="kpi-num">4편</span><span class="kpi-label">이미 제작된 발표자료</span></div>
+            <div class="kpi card card-cyan"><span class="kpi-num">316줄</span><span class="kpi-label">직접 쓴 커스텀 CSS</span></div>
+            <div class="kpi card card-pink"><span class="kpi-num">19회</span><span class="kpi-label">시스템 튜닝 커밋</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Section Divider — Part 1 -->
+      <section id="divider-author" class="section-divider" data-state="is-section-divider">
+        <h1>Part 1.<br>만드는 사람</h1>
+        <p>기획서 한 장이면, 자료 한 편이 나옵니다</p>
+      </section>
+
+      <!-- 5. Author Flow -->
+      <section id="author-flow">
+        <h2>기획서 → 배포까지, 5단계</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-item">
+              <span class="flow-num">1</span>
+              <span class="flow-label"><strong>계획서</strong>로<br>내용 정리</span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-num">2</span>
+              <span class="flow-label"><strong>/revealjs</strong><br>스킬 호출</span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-num">3</span>
+              <span class="flow-label">슬라이드<br>구성안 <strong>검토</strong></span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-num">4</span>
+              <span class="flow-label">HTML 생성<br>+ <strong>자동 검증</strong></span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-num">5</span>
+              <span class="flow-label">Git push<br><strong>자동 배포</strong></span>
+            </div>
+          </div>
+          <blockquote style="margin-top: 20px;" class="text-lg">빌드 명령 없음 &middot; 디자이너 개입 없음 &middot; 배포 스크립트 없음<br><strong class="text-primary">사람은 '무엇'을 쓸지만 결정합니다.</strong></blockquote>
+          <p class="text-muted text-center" style="font-size: 13pt; margin-top: 8px;">지금 보시는 이 자료도 정확히 이 흐름으로 만들어졌습니다.</p>
+        </div>
+      </section>
+
+      <!-- 6. Tuning 1 — Design Rules -->
+      <section id="tuning-rules">
+        <h2>바닐라 Reveal.js가 아닙니다</h2>
+        <div class="content">
+          <p class="text-lg">발표자료를 만들 때 매번 반복되는 결정들을<br><strong class="text-primary">한 번만 정해서 규칙으로 박아 두었습니다.</strong></p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0;">
+            <div class="kpi card"><span class="kpi-num">11</span><span class="kpi-label">스킬 규칙 섹션</span></div>
+            <div class="kpi card card-cyan"><span class="kpi-num">18</span><span class="kpi-label">컬러 팔레트 템플릿</span></div>
+            <div class="kpi card card-pink"><span class="kpi-num">3</span><span class="kpi-label">포맷 프리셋</span></div>
+          </div>
+          <p class="text-muted" style="font-size: 13pt;">포맷 프리셋 &mdash; <strong>Pitch</strong>(발표용 임팩트) &middot; <strong>교육</strong>(자료만 봐도 이해) &middot; <strong>제안</strong>(문제→해결→근거)</p>
+          <div class="forbidden-box">
+            <div class="no-list">
+              <strong>쓰지 않는 말</strong><br>
+              &ldquo;단순한 ~를 넘어&rdquo; &middot; &ldquo;게임체인저&rdquo;<br>
+              &ldquo;~의 여정&rdquo; &middot; &ldquo;패러다임 시프트&rdquo;<br>
+              이모지 &middot; 과도한 수식어
+            </div>
+            <div class="ok-list">
+              <strong>권장하는 표현</strong><br>
+              &ldquo;2배 증가&rdquo; &middot; &ldquo;40% 절감&rdquo;<br>
+              &ldquo;316줄&rdquo; &middot; &ldquo;5단계&rdquo;<br>
+              팩트 기반의 숫자와 키워드
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Tuning 2 — Component Library -->
+      <section id="tuning-components">
+        <h2>재사용 가능한 조각들</h2>
+        <div class="content">
+          <p class="text-lg">매번 스타일을 고민하지 않도록, <strong>검증된 컴포넌트</strong>만 조립합니다.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px;">
+            <div class="card">
+              <h3>Card</h3>
+              <p class="text-muted" style="font-size: 13pt;">핵심 정보 블록</p>
+            </div>
+            <div class="card card-cyan">
+              <h3>KPI</h3>
+              <p class="text-muted" style="font-size: 13pt;">숫자로 임팩트</p>
+            </div>
+            <div class="card card-pink">
+              <h3>Badge</h3>
+              <p class="text-muted" style="font-size: 13pt;">카테고리 라벨</p>
+            </div>
+            <div class="card">
+              <h3>Timeline</h3>
+              <p class="text-muted" style="font-size: 13pt;">시간 순 흐름</p>
+            </div>
+            <div class="card card-cyan">
+              <h3>Blockquote</h3>
+              <p class="text-muted" style="font-size: 13pt;">핵심 메시지 강조</p>
+            </div>
+            <div class="card card-pink">
+              <h3>Step Flow</h3>
+              <p class="text-muted" style="font-size: 13pt;">단계별 절차</p>
+            </div>
+          </div>
+          <p class="text-muted text-center" style="margin-top: 16px; font-size: 13pt;">이 슬라이드 자체가 <strong>Card 컴포넌트</strong>의 예시입니다.</p>
+        </div>
+      </section>
+
+      <!-- 8. Section Divider — Part 2 -->
+      <section id="divider-viewer" class="section-divider" data-state="is-section-divider">
+        <h1>Part 2.<br>보는 사람</h1>
+        <p>링크 하나로 접속하면, AI가 기다리고 있습니다</p>
+      </section>
+
+      <!-- 9. Deploy + Gate -->
+      <section id="deploy-gate">
+        <h2>Git push &rarr; 사내 공유 링크</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 22px;">
+            <div>
+              <p class="text-lg"><strong>자동 배포 파이프라인</strong></p>
+              <div class="flow" style="grid-template-columns: repeat(4, 1fr); margin-top: 10px;">
+                <div class="flow-item"><span class="flow-label"><strong>Private<br>Repo</strong></span></div>
+                <div class="flow-item"><span class="flow-label">GitHub<br>Actions</span></div>
+                <div class="flow-item"><span class="flow-label">Public<br>Mirror</span></div>
+                <div class="flow-item"><span class="flow-label"><strong>GitHub<br>Pages</strong></span></div>
+              </div>
+              <ul class="text-lg" style="margin-top: 14px;">
+                <li>푸시 → 배포까지 <strong>약 15초</strong></li>
+                <li>챗봇·게이트 스크립트 <strong>자동 주입</strong></li>
+                <li>index 페이지 <strong>자동 생성</strong></li>
+              </ul>
+            </div>
+            <div class="card card-cyan">
+              <h3>비밀번호 게이트</h3>
+              <p class="text-muted" style="font-size: 13pt;">사내 자료를 외부에 노출하지 않도록 접근 제어</p>
+              <ul style="font-size: 14pt; margin-top: 8px;">
+                <li>페이지 로드 전 오버레이</li>
+                <li><strong>SHA-256</strong> 클라이언트 검증</li>
+                <li>한 번 통과하면 <strong>7일 유지</strong></li>
+                <li>복수 비밀번호 지원</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Chatbot -->
+      <section id="chatbot">
+        <h2>발표자료 옆에, 질문할 수 있는 AI</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 22px;">
+            <div class="chat-mock">
+              <div class="chat-header">
+                <span class="chat-dot"></span>
+                <span>Promlabs PPT Assistant</span>
+              </div>
+              <div class="msg msg-user">이 시스템에서 가장 튜닝을 많이 한 부분은?</div>
+              <div class="msg msg-bot">CSS 규칙과 금지 표현 규칙입니다. <strong>base-styles.css 316줄</strong>과 SKILL.md의 <strong>11개 섹션</strong>이 핵심이에요.</div>
+              <div class="msg msg-user">지금 몇 번째 슬라이드야?</div>
+              <div class="msg msg-bot">10번 슬라이드 &mdash; 챗봇 소개입니다.</div>
+            </div>
+            <div>
+              <p class="text-lg"><strong class="text-primary">Cloudflare Workers + Gemini</strong></p>
+              <ul class="text-lg">
+                <li>엣지 서버리스로 <strong>전 세계 응답 빠름</strong></li>
+                <li>API 키는 Worker에 숨김<br>(클라이언트 노출 없음)</li>
+                <li><strong>KV 스토어</strong>로 IP별 Rate Limit<br>(분당 10회 / 일 200회)</li>
+                <li>무료 티어로 운영 중</li>
+              </ul>
+              <p class="text-lg text-secondary" style="margin-top: 10px;"><strong>사용자 관점</strong></p>
+              <ul class="text-lg">
+                <li><strong>현재 슬라이드 문맥</strong> 자동 주입</li>
+                <li>최대 <strong>20턴</strong> 대화 기억</li>
+                <li>실시간 스트리밍 + 마크다운 렌더링</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-muted text-center" style="font-size: 13pt; margin-top: 10px;">이 자료 우측 하단에 실제로 떠 있습니다. 눌러서 써 보세요.</p>
+        </div>
+      </section>
+
+      <!-- 11. Philosophy -->
+      <section id="philosophy">
+        <h2>기능보다 규율</h2>
+        <div class="content">
+          <p class="text-lg">자유를 주면 매번 고민합니다. <strong class="text-primary">제약이 일관성을 만듭니다.</strong></p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px;">
+            <div class="card">
+              <h3>애니메이션</h3>
+              <p class="text-lg">50개의 옵션보다,<br><strong>7개의 쓸모있는 것</strong>.</p>
+              <p class="text-muted" style="font-size: 13pt; margin-top: 6px;">너무 반짝이면 집중을 깎습니다.</p>
+            </div>
+            <div class="card card-cyan">
+              <h3>언어</h3>
+              <p class="text-lg">&ldquo;혁신적&rdquo; 금지,<br><strong>&ldquo;2배 증가&rdquo; OK</strong>.</p>
+              <p class="text-muted" style="font-size: 13pt; margin-top: 6px;">팩트 기반의 강조만.</p>
+            </div>
+            <div class="card card-pink">
+              <h3>밀도</h3>
+              <p class="text-lg">슬라이드당 3~5줄,<br><strong>나머지는 말로</strong>.</p>
+              <p class="text-muted" style="font-size: 13pt; margin-top: 6px;">슬라이드는 대본이 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. Proof / Track Record -->
+      <section id="proof">
+        <h2>지금까지의 결과물</h2>
+        <div class="content">
+          <p class="text-lg">짧은 기간, 같은 시스템으로 찍어낸 자료들.</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 16px;">
+            <div class="card"><h3>Jevons Paradox</h3><p class="text-muted">AI 시대 효율성의 역설 &middot; 2026.04.06</p></div>
+            <div class="card card-cyan"><h3>Promptly Studio</h3><p class="text-muted">제품 소개 &middot; 2026.04.06</p></div>
+            <div class="card card-pink"><h3>Tailscale SSH Guide</h3><p class="text-muted">기술 가이드 &middot; 2026.04.06</p></div>
+            <div class="card"><h3>기술혁신팀 로드맵 2026</h3><p class="text-muted">경영진 브리핑 &middot; 2026.04.08</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px;">
+            <div class="kpi card card-ghost"><span class="kpi-num" style="font-size: 32pt;">19</span><span class="kpi-label">시스템 커밋</span></div>
+            <div class="kpi card card-ghost"><span class="kpi-num" style="font-size: 32pt;">316</span><span class="kpi-label">줄 CSS</span></div>
+            <div class="kpi card card-ghost"><span class="kpi-num" style="font-size: 32pt;">11</span><span class="kpi-label">규칙 섹션</span></div>
+            <div class="kpi card card-ghost"><span class="kpi-num" style="font-size: 32pt;">2</span><span class="kpi-label">부가 시스템</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. Close -->
+      <section id="close" class="section-divider" data-state="is-section-divider">
+        <h1>감사합니다</h1>
+        <p>기술혁신팀</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      controls: true,
+      progress: true,
+    });
+    Reveal.on('slidechanged', function(e) {
+      const vp = document.querySelector('.reveal-viewport');
+      if (!vp) return;
+      if (e.currentSlide && e.currentSlide.classList.contains('section-divider')) {
+        vp.classList.add('is-section-divider');
+      } else {
+        vp.classList.remove('is-section-divider');
+      }
+    });
+    Reveal.on('ready', function(e) {
+      const vp = document.querySelector('.reveal-viewport');
+      if (!vp) return;
+      if (e.currentSlide && e.currentSlide.classList.contains('section-divider')) {
+        vp.classList.add('is-section-divider');
+      }
+    });
+  </script>
+  <script src="../../chatbot-widget.js"></script>
+</body>
+</html>
