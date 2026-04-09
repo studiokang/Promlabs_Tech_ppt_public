@@ -164,16 +164,19 @@
   color: var(--muted-color);
 }
 
-/* 상단 데코 라인 */
-.reveal .slides section::before {
+/* 상단 데코 라인 — viewport 최상단 고정 */
+body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
   background-size: 200% 100%;
   animation: lineFlow 5s linear infinite;
+  z-index: 1000;
+  pointer-events: none;
 }
+.reveal .slides section::before { display: none; }
 @keyframes lineFlow {
   0%   { background-position: 0% 0; }
   100% { background-position: 200% 0; }
@@ -445,9 +448,15 @@
 }
 .forbidden-box .no-list,
 .forbidden-box .ok-list {
-  padding: 14px 18px;
+  padding: 18px 22px;
   border-radius: 10px;
   font-size: 14pt;
+  line-height: 1.9;
+}
+.forbidden-box .no-list strong,
+.forbidden-box .ok-list strong {
+  display: inline-block;
+  margin-bottom: 6px;
 }
 .forbidden-box .no-list {
   background: #fdf2f8;
